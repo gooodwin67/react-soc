@@ -3,6 +3,7 @@ import './Messages.css';
 
 export class Messages extends React.Component {
     render() {
+
         return (
             <div className='messages-wrap'>
                 <div className='dialogs_block'>
