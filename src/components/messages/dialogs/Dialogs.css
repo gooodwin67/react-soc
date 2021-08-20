@@ -1,0 +1,25 @@
+.messages-wrap .dialogs_block>div{
+    width: 100%;
+}
+.messages-wrap .dialogs_block .active{
+    background: #fff;
+    width: 100%;
+    
+}
+.messages-wrap .dialogs_block a {
+    display: inline-block;
+    font-size: 18px;
+    padding: 0px 10px;
+    cursor: pointer;
+    width: 100%;
+    text-decoration: none;
+    color: #555;
+}
+.messages-wrap .dialogs_name_block {
+    display: flex;
+    align-items: center;
+}
+.messages-wrap .dialog_avatar {
+    width: 50px;
+    margin-right: 10px;;
+}

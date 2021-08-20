@@ -1,0 +1,10 @@
+.sidebar {
+    height: 100%;
+    width: 300px;
+}
+.sidebar .header_h5 {
+    margin: 0;
+    padding: 10px;
+    background: #4E7BBE;
+    color: #fff;
+  }

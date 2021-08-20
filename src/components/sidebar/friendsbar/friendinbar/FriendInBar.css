@@ -1,0 +1,11 @@
+.friends_in_bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.friends_in_bar img {
+    max-width: 60px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}

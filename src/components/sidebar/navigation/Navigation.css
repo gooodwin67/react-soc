@@ -1,0 +1,17 @@
+.nav {
+  background: #fff;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+}
+.menu .navlink {
+  color: #888;
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-decoration: none;
+}
+.menu .active {
+  color: #4E7BBE;;
+}

@@ -1,0 +1,31 @@
+.new_post_block {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .new_post_block form {
+    display: flex;
+    flex-direction: column;
+  }
+  .new_post_block form textarea {
+    height: 50px;
+    background: #fff;
+    border: 1px solid #ccc;
+    display: flex;
+    padding:5px;
+  }
+  .new_post_block form a {
+    align-self: flex-end;
+    margin-top: 10px;
+    background: #00aa00;
+    border:none;
+    color: #fff;
+    box-shadow: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  .all_posts_block {
+    margin-top: 30px;
+  }
+  

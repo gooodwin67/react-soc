@@ -1,0 +1,12 @@
+header {
+  width: 100%;
+  background: #4E7BBE;
+}
+header>div{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5px 10px;
+}
+header .header_logo {
+  width: 40px;
+}

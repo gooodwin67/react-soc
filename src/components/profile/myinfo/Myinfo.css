@@ -1,0 +1,23 @@
+
+.content_main_img img {
+  max-width: 100%;
+}
+.user_info_block {
+  display: flex;
+  margin-top: 20px;
+}
+.user_info_block_left {
+  margin-right: 20px;
+}
+.user_avatar {
+  width: 100px;
+}
+.name h4 {
+  font-size: 18px;
+  color: #000;
+  margin: 5px 0;
+}
+.user_description>div {
+  margin-bottom: 5px;
+  font-size: 12px;
+}

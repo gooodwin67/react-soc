@@ -1,0 +1,13 @@
+.friendsbar {
+  background: #fff;
+  margin-top: 10px;
+}
+.friendsbar_block {
+  padding: 20px 10px;
+  padding-bottom: 0;;
+  display: flex;
+  flex-wrap: wrap;
+}
+.friendsbar_block>div {
+  flex-basis: 33%;
+}
