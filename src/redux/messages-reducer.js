@@ -75,47 +75,36 @@ let initialState = {
 
 const messagesReducer = (state = initialState, action) => {
 
-    if (action.type === 'CHANGE-MESSAGE') {
-        state.messagesData[action.id].input = action.text;
-    }
-    else if (action.type === 'ADD-MESSAGE') {
-        if (action.id<state.messagesData.length) {
-            state.messagesData[action.id].messages.push(
-                    {
-                        id: state.messagesData[action.id].messages.length+1,
-                        text: state.messagesData[action.id].input,
-                        me: 1 
-                    }
-            )
+    switch(action.type) {
+        case 'CHANGE-MESSAGE': {
+            let copyState = {...state}
+            copyState.messagesData[0].input = action.text;
+            return copyState
         }
-        else {
-            state.messagesData.push(
-                {   
-                    dialogId: action.id,
-                    messages:
-                    [
-                        {id:1, text: state.messagesData[action.id].input, me: 1},
-                        
-                    ]
-                }
-            )
+        case 'ADD-MESSAGE': {
+            let copyState = {...state}
+            copyState.messagesData = {...state.messagesData}
+            copyState.messagesData.messages = {...state.messagesData.messages}
+            copyState.messagesData[0].messages.push({id:copyState.messagesData[0].messages.length+1, text: state.messagesData[0].input, me: 1})
+            copyState.messagesData[0].input = '';
+            return copyState
         }
-        state.messagesData[action.id].input = '';
-    }
+        default: 
+        return state
 
-    return state
+    }
 }
 
-export const changeMessageCreator = (id, text) => {
+export const editInputMessageCreator = (text) => {
     return {
         type: 'CHANGE-MESSAGE',
-        id: id,
         text: text
     }
 }
-export const addMessageCreactor = (id) => {
+export const addMessageCreactor = (id, input) => {
     return {
         type: 'ADD-MESSAGE',
+        input: input,
         id: id
     }
 }

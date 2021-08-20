@@ -1,28 +1,26 @@
 import React from 'react';
 import './Messages.css';
 import { Dialogs } from './dialogs/Dialogs.js';
-import { Route } from 'react-router-dom';
-import MessageContainer from './message/MessageContainer';
+import MessageItemContainer from './message/MessageItemContainer';
+import { editInputMessageCreator, addMessageCreactor } from './../../redux/messages-reducer.js';
 import { connect } from 'react-redux';
 import { Messages } from './Messages';
 
 let mapStateToProps = (state) => {
     return {
         dialogsElements: state.messagesPage.dialogsData.map(el => <Dialogs name={el.name} avatar={el.avatar} id={el.id} key={el.id} />),
-        messageElements: state.messagesPage.dialogsData.map((el) => {
-
-            let a1 = '/messages/' + el.id;
-            if (state.messagesPage.messagesData[el.id - 1]) {
-                return <Route path={a1} render={() => <MessageContainer id={el.id} key={el.id} />} key={el.id} />
-
-            }
-        })
+        messageElements: state.messagesPage.messagesData[0].messages.map((el) => <MessageItemContainer id={el.id} text={el.text} me={el.me} key={el.id} />)
     }
 }
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        null: null
+        editInputNewMessage: (text) => {
+            dispatch(editInputMessageCreator(text))
+        },
+        addMessage: (id, input) => {
+            dispatch(addMessageCreactor(id, input))
+        }
     }
 }
 

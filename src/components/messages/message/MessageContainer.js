@@ -1,15 +1,14 @@
 import React from 'react';
 import './Message.css';
-import { MessageItem } from './messageitem/MessageItem';
+import MessageItemContainer from './messageitem/MessageItemContainer';
 import { Message } from './Message';
 import { addMessageCreactor, changeMessageCreator } from '../../../redux/messages-reducer';
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
-    console.log(state)
     return {
         input: state.input,
-        text: state.messagesPage.messagesData[state.id - 1].messages.map(el => <MessageItem id={state.id} key={el.id} />)
+        text: state.messagesPage.messagesData[0].messages.map(el => <MessageItemContainer id={el.id} key={el.id} me={el.me} text={el.text} />)
     }
 }
 
