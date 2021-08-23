@@ -15,46 +15,52 @@ const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case 'ADD-POST': {
-            let copyState = { ...state }
-            copyState.posts = [...state.posts]
             let nextId = action.id
-            copyState.posts.push({
-                id: nextId,
-                text: action.text,
-                likes: 0,
-                ilike: 0,
-                likeClass: ''
-            })
-            copyState.input = '';
-            return copyState;
+            return {
+                ...state,
+                posts: [...state.posts, { id: nextId, text: action.text, likes: 0, ilike: 0, likeClass: '' }],
+                input: ''
+            }
         }
         case 'DEL-POST': {
-            let copyState = { ...state }
-            copyState.posts = [...state.posts]
-            let elPos = copyState.posts.indexOf(copyState.posts.find(el => el.id === action.id))
-            copyState.posts.splice(elPos, 1);
-            return copyState;
+            return {
+                ...state,
+                posts: (() => {
+                    let posts = [...state.posts]
+                    let elPos = posts.indexOf(posts.find(el => el.id === action.id))
+                    posts.splice(elPos, 1);
+                    return posts
+                })()
+            }
+
+
         }
         case 'ADD-LIKE': {
-            let copyState = { ...state }
-            copyState.posts = [...state.posts]
-            let elPos = copyState.posts.indexOf(copyState.posts.find(el => el.id === action.id))
-            if (copyState.posts[elPos].ilike == 0) {
-                copyState.posts[elPos].likes += 1;
-                copyState.posts[elPos].ilike = 1;
-                copyState.posts[elPos].likeClass = 'like_button';
+            return {
+                ...state,
+                posts: (() => {
+                    let posts = [...state.posts]
+                    let elPos = posts.indexOf(posts.find(el => el.id === action.id))
+                    if (posts[elPos].ilike == 0) {
+                        posts[elPos].likes += 1;
+                        posts[elPos].ilike = 1;
+                        posts[elPos].likeClass = 'like_button';
+                    }
+                    else {
+                        posts[elPos].likes -= 1;
+                        posts[elPos].ilike = 0;
+                        posts[elPos].likeClass = '';
+                    }
+                    return posts;
+                })()
             }
-            else {
-                copyState.posts[elPos].likes -= 1;
-                copyState.posts[elPos].ilike = 0;
-                copyState.posts[elPos].likeClass = '';
-            }
-            return copyState;
         }
         case 'CHANGE-POST': {
-            let copyState = { ...state }
-            copyState.input = action.text;
-            return copyState;
+            return {
+                ...state,
+                input: action.text
+            }
+
         }
         default:
             return state
