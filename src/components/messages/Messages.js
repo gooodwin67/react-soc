@@ -3,7 +3,6 @@ import './Messages.css';
 
 export class Messages extends React.Component {
     render() {
-        
         let editInputNewMessage = (el) => {
             this.props.editInputNewMessage(el.target.value)
         }
@@ -29,7 +28,7 @@ export class Messages extends React.Component {
 
 
                 </div>
-                
+
             </div>
         )
     }

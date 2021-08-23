@@ -4,7 +4,7 @@ import { MessageItem } from './MessageItem';
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
-    console.log(state)
+
     return {
         null: null
     }

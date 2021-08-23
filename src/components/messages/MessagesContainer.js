@@ -9,7 +9,8 @@ import { Messages } from './Messages';
 let mapStateToProps = (state) => {
     return {
         dialogsElements: state.messagesPage.dialogsData.map(el => <Dialogs name={el.name} avatar={el.avatar} id={el.id} key={el.id} />),
-        messageElements: state.messagesPage.messagesData[0].messages.map((el) => <MessageItemContainer id={el.id} text={el.text} me={el.me} key={el.id} />)
+        messageElements: state.messagesPage.messagesData[0].messages.map((el) => <MessageItemContainer id={el.id} text={el.text} me={el.me} key={el.id} />),
+        input: state.messagesPage.messagesData[0].input
     }
 }
 

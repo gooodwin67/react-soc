@@ -3,7 +3,6 @@ import './MessageItem.css';
 
 export class MessageItem extends React.Component {
     render() {
-        //console.log(this.props.me)
         return (
 
             <React.Fragment>
@@ -12,7 +11,7 @@ export class MessageItem extends React.Component {
                     :
                     (<div className='message_item message_item_notme'>{this.props.text}</div>)
                 }
-                
+
 
             </React.Fragment>
 
