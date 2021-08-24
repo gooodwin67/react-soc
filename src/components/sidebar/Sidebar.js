@@ -1,17 +1,16 @@
 import React from 'react';
 import './Sidebar.css';
 import { Navigation } from './navigation/Navigation';
-import { FriendsBar } from './friendsbar/FriendsBar';
+import FriendsBarContainer from './friendsbar/FriendsBarContainer';
 
 export class Sidebar extends React.Component {
   render() {
     return (
-      <div className = 'sidebar'>
-        
+      <div className='sidebar'>
+
         <Navigation />
-        {/*}
-        <FriendsBar state = {this.props.state}/>
-    */}
+
+        <FriendsBarContainer />
       </div>
     );
   }
