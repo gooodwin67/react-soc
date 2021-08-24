@@ -4,6 +4,7 @@ import { Profile } from './components/profile/Profile';
 import { Sidebar } from './components/sidebar/Sidebar';
 import { Header } from './components/header/Header';
 import MessagesContainer from './components/messages/MessagesContainer';
+import UsersContainer from './components/users/UsersContainer';
 import { News } from './components/news/News';
 import { Music } from './components/music/Music';
 import { Settings } from './components/settings/Settings';
@@ -28,6 +29,7 @@ class App extends React.Component {
             <div className='content'>
               <Route path='/profile' render={() => <Profile />} />
               <Route path='/messages' render={() => <MessagesContainer />} />
+              <Route path='/users' component={UsersContainer} />
               <Route path='/news' component={News} />
 
               <Route path='/music' render={() => <Music />} />
