@@ -1,17 +1,9 @@
 
 let initialState = {
-    users: [
-        { id: 1, following: true, avatarurl: 'https://www.pinclipart.com/picdir/middle/78-789013_digital-product-designer-avatar-clipart.png', name: 'Andrey', status: 'Comon Chels', location: { country: 'Russia', city: 'Smolensk' } },
-        { id: 2, following: false, avatarurl: 'https://www.pinclipart.com/picdir/middle/78-789013_digital-product-designer-avatar-clipart.png', name: 'Pahsa', status: 'Comon Chels2', location: { country: 'Ukraine', city: 'Kiyev' } },
-        { id: 3, following: true, avatarurl: 'https://www.pinclipart.com/picdir/middle/78-789013_digital-product-designer-avatar-clipart.png', name: 'Nikolay', status: 'Comon Chels3', location: { country: 'Belarus', city: 'Smolensk' } },
-        { id: 4, following: true, avatarurl: 'https://www.pinclipart.com/picdir/middle/78-789013_digital-product-designer-avatar-clipart.png', name: 'Sergey', status: 'Comon Chels4', location: { country: 'Russia', city: 'Smolensk' } },
-        { id: 5, following: false, avatarurl: 'https://www.pinclipart.com/picdir/middle/78-789013_digital-product-designer-avatar-clipart.png', name: 'Marina', status: 'Comon Chels5', location: { country: 'Russia', city: 'Smolensk' } },
-        { id: 6, following: true, avatarurl: 'https://www.pinclipart.com/picdir/middle/78-789013_digital-product-designer-avatar-clipart.png', name: 'Oleg', status: 'Comon Chels6', location: { country: 'Russia', city: 'Smolensk' } }
-    ]
+    users: []
 };
 
 const usersReducer = (state = initialState, action) => {
-    let copyState;
     switch (action.type) {
         case 'USER-FOLLOW':
 
@@ -37,7 +29,11 @@ const usersReducer = (state = initialState, action) => {
                     return el
                 })
             };
-
+        case 'SET-USERS':
+            return {
+                ...state,
+                users: action.users
+            }
 
         default:
             return state
@@ -57,6 +53,11 @@ export const UserUnFollowAC = (id) => {
         id: id
     }
 }
-
+export const SetUsersAC = (users) => {
+    return {
+        type: 'SET-USERS',
+        users: users
+    }
+}
 
 export default usersReducer;
