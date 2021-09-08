@@ -1,6 +1,9 @@
 
 let initialState = {
-    users: []
+    users: [],
+    countOnPage: 50,
+    totalCount: 200,
+    currentPage: 1
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -32,7 +35,13 @@ const usersReducer = (state = initialState, action) => {
         case 'SET-USERS':
             return {
                 ...state,
-                users: action.users
+                users: action.users,
+                totalCount: action.totalCount
+            }
+        case 'SET-PAGINATION-PAGE':
+            return {
+                ...state,
+                currentPage: action.page
             }
 
         default:
@@ -53,10 +62,17 @@ export const UserUnFollowAC = (id) => {
         id: id
     }
 }
-export const SetUsersAC = (users) => {
+export const SetUsersAC = (users, totalCount) => {
     return {
         type: 'SET-USERS',
-        users: users
+        users: users,
+        totalCount: totalCount
+    }
+}
+export const SetPaginationPageAC = (page) => {
+    return {
+        type: 'SET-PAGINATION-PAGE',
+        page: page
     }
 }
 

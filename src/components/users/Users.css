@@ -4,3 +4,11 @@
     align-items: center;
     margin-bottom: 30px;
 }
+.pagination_block span {
+    cursor: pointer;
+    margin: 10px 5px;
+    display: inline-block;
+}
+.pagination-active {
+    font-weight: bold;
+}
