@@ -12,3 +12,6 @@
 .pagination-active {
     font-weight: bold;
 }
+.usersPage {
+    position: relative;
+}

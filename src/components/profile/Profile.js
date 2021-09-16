@@ -6,11 +6,10 @@ import { Myinfo } from './myinfo/Myinfo.js'
 
 export class Profile extends React.Component {
   render() {
-
     return (
       <div className='content-wrap'>
 
-        <Myinfo />
+        <Myinfo profile={this.props.profile} />
         <MypostsContainer />
 
       </div>

@@ -10,3 +10,11 @@ header>div{
 header .header_logo {
   width: 40px;
 }
+.header_block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header_block a {
+  color: #fff;
+}

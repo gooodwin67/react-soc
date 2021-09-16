@@ -6,7 +6,8 @@ let initialState = {
         { id: 1, text: 'Lorem ipsum dolor sit amet', likes: 10, ilike: 0, likeClass: '' },
         { id: 2, text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', likes: 0, ilike: 0, likeClass: '' },
         { id: 3, text: 'Lorem ipsum dolor sit amet, consectetur.', likes: 5, ilike: 1, likeClass: 'like_button' }
-    ]
+    ],
+    profile: null
 }
 
 
@@ -62,6 +63,13 @@ const profileReducer = (state = initialState, action) => {
             }
 
         }
+        case 'SET-USERS': {
+            return {
+                ...state,
+                profile: action.profile
+            }
+
+        }
         default:
             return state
     }
@@ -95,6 +103,13 @@ export const changePostCreator = (text) => {
         type: 'CHANGE-POST',
         text: text
     }
+}
+export const setUsers = (profile) => {
+    return {
+        type: 'SET-USERS',
+        profile: profile
+    }
+
 }
 
 

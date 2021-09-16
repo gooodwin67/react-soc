@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css'
-import { Profile } from './components/profile/Profile';
+import ProfileContainer from './components/profile/ProfileContainer';
 import { Sidebar } from './components/sidebar/Sidebar';
-import { Header } from './components/header/Header';
 import MessagesContainer from './components/messages/MessagesContainer';
 import UsersContainer from './components/users/UsersContainer';
 import { News } from './components/news/News';
 import { Music } from './components/music/Music';
 import { Settings } from './components/settings/Settings';
 import { BrowserRouter, Route } from 'react-router-dom';
+import HeaderContainer from './components/header/HeaderContainer';
 
 class App extends React.Component {
   render() {
@@ -18,7 +18,7 @@ class App extends React.Component {
         <div className='app-wrapper'>
 
           <header>
-            <Header />
+            <HeaderContainer />
           </header>
 
           <main>
@@ -27,7 +27,7 @@ class App extends React.Component {
 
 
             <div className='content'>
-              <Route path='/profile' render={() => <Profile />} />
+              <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
               <Route path='/messages' render={() => <MessagesContainer />} />
               <Route path='/users' component={UsersContainer} />
               <Route path='/news' component={News} />
