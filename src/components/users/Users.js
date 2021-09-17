@@ -37,24 +37,31 @@ export let Users = (props) => {
                             {
                                 el.followed == true
                                     ?
-                                    <button disabled={props.followingInProgress && true} onClick={() => {
-                                        props.setFollowIsProgress(true)
+                                    <button onClick={() => {
+
+                                        props.setFollowIsProgress(1, el.id)
+
+
+
                                         usersApi.unfollow(el.id).then((data) => {
                                             if (data.resultCode == 0) {
                                                 props.userUnFollow(el.id)
                                             }
-                                            props.setFollowIsProgress(false)
+                                            props.setFollowIsProgress(0, el.id)
+
                                         })
 
                                     }}>UnFollow</button>
                                     :
-                                    <button disabled={props.followingInProgress} onClick={() => {
-                                        props.setFollowIsProgress(true)
+                                    <button onClick={() => {
+                                        props.setFollowIsProgress(1, el.id)
+
                                         usersApi.follow(el.id).then((data) => {
                                             if (data.resultCode == 0) {
                                                 props.userFollow(el.id)
                                             }
-                                            props.setFollowIsProgress(false)
+                                            props.setFollowIsProgress(0, el.id)
+
                                         })
 
 

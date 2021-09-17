@@ -51,6 +51,7 @@ const usersReducer = (state = initialState, action) => {
                 isProgress: action.isProgress
             }
         case 'SET-FOLLOW-IS-PROGRESS':
+
             return {
                 ...state,
                 followingInProgress: action.isProgress
@@ -93,10 +94,11 @@ export const setIsProgress = (isProgress) => {
         isProgress
     }
 }
-export const setFollowIsProgress = (isProgress) => {
+export const setFollowIsProgress = (isProgress, id) => {
     return {
         type: 'SET-FOLLOW-IS-PROGRESS',
-        isProgress
+        isProgress,
+        id
     }
 }
 
