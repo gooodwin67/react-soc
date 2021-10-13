@@ -43,6 +43,7 @@ class UsersContainer extends React.Component {
                 setPaginationPage={this.setPaginationPage}
                 users={this.props.users}
                 isProgress={this.props.isProgress}
+                followIsProgress={this.props.followIsProgress}
                 followingInProgress={this.props.followingInProgress}
                 setFollowIsProgress={this.props.setFollowIsProgress} />
         )
@@ -56,6 +57,7 @@ let mapStateToProps = (state) => {
         totalCount: state.usersPage.totalCount,
         currentPage: state.usersPage.currentPage,
         isProgress: state.usersPage.isProgress,
+        followIsProgress: state.usersPage.followIsProgress,
         followingInProgress: state.usersPage.followingInProgress
     }
 }

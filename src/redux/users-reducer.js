@@ -5,7 +5,8 @@ let initialState = {
     totalCount: 200,
     currentPage: 1,
     isProgress: false,
-    followingInProgress: false
+    followIsProgress: 0,
+    followingInProgress: []
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -52,10 +53,17 @@ const usersReducer = (state = initialState, action) => {
             }
         case 'SET-FOLLOW-IS-PROGRESS':
 
+
+
             return {
                 ...state,
                 followingInProgress: action.isProgress
+                    ? [...state.followingInProgress, action.id]
+                    : [...state.followingInProgress.filter(id => id != action.id)]
             }
+
+
+
 
         default:
             return state

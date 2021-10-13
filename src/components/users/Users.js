@@ -3,7 +3,6 @@ import './Users.css';
 import noPhotoMan from '../../../src/images/no-photo-man.png';
 import Preloader from '../common/Preloader/Preloader';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { usersApi } from '../../api/users-api';
 
 export let Users = (props) => {
@@ -37,11 +36,9 @@ export let Users = (props) => {
                             {
                                 el.followed == true
                                     ?
-                                    <button onClick={() => {
+                                    <button disabled={props.followingInProgress.some(id => id === el.id)} onClick={() => {
 
                                         props.setFollowIsProgress(1, el.id)
-
-
 
                                         usersApi.unfollow(el.id).then((data) => {
                                             if (data.resultCode == 0) {
@@ -49,11 +46,12 @@ export let Users = (props) => {
                                             }
                                             props.setFollowIsProgress(0, el.id)
 
-                                        })
 
+                                        })
                                     }}>UnFollow</button>
                                     :
-                                    <button onClick={() => {
+                                    <button disabled={props.followingInProgress.some(id => id === el.id)} onClick={() => {
+
                                         props.setFollowIsProgress(1, el.id)
 
                                         usersApi.follow(el.id).then((data) => {
@@ -61,7 +59,6 @@ export let Users = (props) => {
                                                 props.userFollow(el.id)
                                             }
                                             props.setFollowIsProgress(0, el.id)
-
                                         })
 
 
